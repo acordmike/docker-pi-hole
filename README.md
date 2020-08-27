@@ -121,6 +121,7 @@ There are other environment variables if you want to customize various things in
 | `DNSMASQ_USER: <pihole\|root>`<br/> *Experimental Default: root* | Allows running FTLDNS as non-root.
 | `TEMPERATUREUNIT`: <c\|k\|f><br/>*Optional Default: c* | Set preferred temperature unit to `c`: Celsius, `k`: Kelvin, or `f` Fahrenheit units.
 | `WEBUIBOXEDLAYOUT: <boxed\|traditional>`<br/>*Optional Default: boxed* | Use boxed layout (helpful when working on large screens)
+| `CACHE_SIZE: <number>`<br/> *Optional* *Default: 10000* | Size of the DNS domain cache.
 
 To use these env vars in docker run format style them like: `-e DNS1=1.1.1.1`
 

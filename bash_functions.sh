@@ -133,12 +133,16 @@ setup_dnsmasq() {
     local dns2="$2"
     local interface="$3"
     local dnsmasq_listening_behaviour="$4"
+    local cache_size="$5"
+
     # Coordinates
     setup_dnsmasq_config_if_missing
     setup_dnsmasq_dns "$dns1" "$dns2"
     setup_dnsmasq_interface "$interface"
     setup_dnsmasq_listening_behaviour "$dnsmasq_listening_behaviour"
     setup_dnsmasq_user "${DNSMASQ_USER}"
+    setup_dnsmasq_cachesize "$cache_size"
+
     ProcessDNSSettings
 }
 
@@ -161,6 +165,7 @@ setup_dnsmasq_hostnames() {
     local IPV4_ADDRESS="${1}"
     local IPV6_ADDRESS="${2}"
     local hostname="${3}"
+    
     local dnsmasq_pihole_01_location="/etc/dnsmasq.d/01-pihole.conf"
 
     if [ -z "$hostname" ]; then
@@ -190,6 +195,18 @@ setup_dnsmasq_hostnames() {
         sed -i "s/@HOSTNAME@/$hostname/" ${dnsmasq_pihole_01_location}
     else
         sed -i '/^address=\/@HOSTNAME@*/d' ${dnsmasq_pihole_01_location}
+    fi
+    
+}
+
+setup_dnsmasq_cachesize() {
+    local cachesize="${1}"
+
+    local dnsmasq_pihole_01_location="/etc/dnsmasq.d/01-pihole.conf"
+
+    if [[ "${cachesize}" != "" ]]; then
+        echo "Cache size being set to $cachesize"
+        sed -i "s/\(cache-size=\).*/\1${cachesize}/" ${dnsmasq_pihole_01_location}
     fi
 }
 

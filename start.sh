@@ -24,6 +24,7 @@ export CONDITIONAL_FORWARDING_REVERSE
 export TEMPERATUREUNIT
 export ADMIN_EMAIL
 export WEBUIBOXEDLAYOUT
+export CACHE_SIZE
 
 export adlistFile='/etc/pihole/adlists.list'
 
@@ -70,7 +71,7 @@ setup_web_password "$WEBPASSWORD"
 setup_temp_unit "$TEMPERATUREUNIT"
 setup_ui_layout "$WEBUIBOXEDLAYOUT"
 setup_admin_email "$ADMIN_EMAIL"
-setup_dnsmasq "$DNS1" "$DNS2" "$INTERFACE" "$DNSMASQ_LISTENING_BEHAVIOUR"
+setup_dnsmasq "$DNS1" "$DNS2" "$INTERFACE" "$DNSMASQ_LISTENING_BEHAVIOUR" "$CACHE_SIZE"
 setup_php_env
 setup_dnsmasq_hostnames "$ServerIP" "$ServerIPv6" "$HOSTNAME"
 setup_ipv4_ipv6
