@@ -48,7 +48,7 @@ services:
     container_name: pihole
     domainname: homedomain.lan
 
-    image: pihole/pihole:latest
+    image: acordmike/pihole:latest
     networks:
       - discovery
     ports:

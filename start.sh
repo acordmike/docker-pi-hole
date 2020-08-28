@@ -37,7 +37,7 @@ export adlistFile='/etc/pihole/adlists.list'
 # PH_TEST prevents the install from actually running (someone should rename that)
 PH_TEST=true . $PIHOLE_INSTALL
 
-echo " ::: Starting docker specific checks & setup for docker pihole/pihole"
+echo " ::: Starting docker specific checks & setup for docker acordmike/pihole"
 
 # TODO:
 #if [ ! -f /.piholeFirstBoot ] ; then
